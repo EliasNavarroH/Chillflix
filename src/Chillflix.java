@@ -6,7 +6,7 @@ public class Chillflix {
         int opcion = 0;
         int inicioVideo = 0;
 
-        Video video[] = new Video[inicioVideo]; // Por el momento inicializo el array con 500 lugares en memoria 
+        Video video[] = new Video[inicioVideo];
 
         System.out.println("      CHILLFLIX      ");
         System.out.println("=====================");
@@ -36,11 +36,15 @@ public class Chillflix {
                 inicioVideo++;
                 break;
             case 3:
+                
             case 4:
+                System.
             case 5:
             case 6:
             case 7:
+                
             case 9:
+                System.out.println("Hasta luego!");
                 break;
         
             default:
@@ -64,7 +68,7 @@ public class Chillflix {
     }
 
     public static Serie registrarSerie(Scanner input){
-        Serie serie = new Serie(null, null, null, null, null, null, null);
+        Serie serie = new Serie(null, null, null, null, null, null, null, null);
         System.out.println("Ingresa el titulo de la serie: ");
         input.nextLine();
         serie.setTitulo(input.nextLine());
@@ -75,6 +79,12 @@ public class Chillflix {
         System.out.println("La duracion de la mimsa: ");
         serie.setDuracion(input.nextInt());
         return serie;
+    }
+
+    public static Capitulo registrarCapitulo(Scanner input){
+        Capitulo capitulo = new Capitulo(null, null, null, null, null, null, null, null, null);
+        
+        return capitulo;
     }
 
 
