@@ -4,7 +4,7 @@ public class Serie extends Video{
     
     public Serie(String titulo, String genero, Integer anio, Integer duracion, Integer tiempoVisto,
             Integer calificacion, Boolean visto, Integer temporadas) {
-        super(titulo, genero, anio, duracion, tiempoVisto, calificacion, visto);
+        super(titulo, genero, anio, duracion, tiempoVisto, calificacion, visto, temporadas);
         this.temporadas = temporadas;
     }
 

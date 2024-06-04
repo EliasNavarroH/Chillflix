@@ -5,7 +5,7 @@ public abstract class Video {
 
     
     public Video(String titulo, String genero, Integer anio, Integer duracion, Integer tiempoVisto,
-            Integer calificacion, Boolean visto) {
+            Integer calificacion, Boolean visto, Integer temporadas) {
         this.titulo = titulo;
         this.genero = genero;
         this.anio = anio;
