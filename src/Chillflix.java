@@ -9,7 +9,6 @@ public class Chillflix {
 
         Pelicula pelicula[] = new Pelicula[100]; //maximo de 100 peliculas
         Serie serie[] = new Serie[100];//maximo de 100 series
-        Capitulo capitulo [][] = new Capitulo[30][100]; //maximo de 30 temporadas y 100 capitulos por temporada
 
         System.out.println("      CHILLFLIX      ");
         System.out.println("=====================");
@@ -25,32 +24,30 @@ public class Chillflix {
         System.out.println("=====================");
         System.out.println("9.-Salir");
         System.out.println("=====================");
-        System.out.println("Elija una opcion:");
 
-        opcion = input.nextInt();
-        switch (opcion) {
-            
-            case 1:
+        while (true) {
+            System.out.println("Elija una opcion:");
+            opcion = input.nextInt();
+            switch (opcion) { 
+                case 1:
                 pelicula[inicioPelicula] = registrarPelicula(input);
                 inicioPelicula++;
                 break;
-            case 2:
+                case 2:
                 serie[inicioSerie] = registrarSerie(input);
                 inicioSerie++;
                 break;
-            case 3:
+                case 3:
                 
-            case 4:
+                case 4:
                 System.out.println("");
-            case 5:
-            case 6:
-            case 7:
-            case 9:
+                case 5:
+                case 6:
+                case 7:
+                case 9:
                 System.out.println("Hasta luego!");
                 break;
-        
-            default:
-                break;
+            }
         }
 
     }
@@ -82,18 +79,17 @@ public class Chillflix {
         serie.setDuracion(input.nextInt());
         System.out.println("Ingrese la cantidad de temporadas: ");
         serie.setTemporadas(input.nextInt());
+        serie.capitulos = new Capitulo[50];
         return serie;
     }
 
-    public static Capitulo registrarCapitulo(Scanner input, Integer inicioSerie, Serie serie[]){
-        System.out.println("En que serie quieres registrar los Capitulos ? ");
-        if (inicioSerie != 0) {
-            for(int i = 0; i <; i++){
-
+    public static Capitulo registrarCapitulo(Scanner input, Integer inicioSerie, Serie[] series){
+        if (inicioSerie !=0) {
+            System.out.println("A que Serie le quieres agregar capitulos ?");
+            for(int i=0 ; i<inicioSerie ; i++){
+                System.out.println(i+1 + ". " + series.toString());
             }
         }
-        Capitulo capitulo = new Capitulo(null, null, null, null, null, null, null, null, null);
-        
         return capitulo;
     }
 
