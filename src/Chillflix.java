@@ -9,7 +9,8 @@ public class Chillflix {
 
         Pelicula pelicula[] = new Pelicula[100]; //maximo de 100 peliculas
         Serie serie[] = new Serie[100];//maximo de 100 series
-
+        
+        while (true) {
         System.out.println("      CHILLFLIX      ");
         System.out.println("=====================");
         System.out.println("1.-Registrar Pelicula");
@@ -25,7 +26,6 @@ public class Chillflix {
         System.out.println("9.-Salir");
         System.out.println("=====================");
 
-        while (true) {
             System.out.println("Elija una opcion:");
             opcion = input.nextInt();
             switch (opcion) { 
@@ -38,7 +38,8 @@ public class Chillflix {
                 inicioSerie++;
                 break;
                 case 3:
-                
+                registrarCapitulo(input, inicioSerie, serie);
+                break;
                 case 4:
                 System.out.println("");
                 case 5:
@@ -87,7 +88,7 @@ public class Chillflix {
         if (inicioSerie !=0) {
             System.out.println("A que Serie le quieres agregar capitulos ?");
             for(int i=0 ; i<inicioSerie ; i++){
-                System.out.println(i+1 + ". " + series.toString());
+                System.out.println(i+1 + ". " + series[i].toString());
             }
         }
         return capitulo;
