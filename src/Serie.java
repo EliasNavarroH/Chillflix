@@ -5,7 +5,7 @@ public class Serie extends Video implements Visualizable{
     
     public Serie(String titulo, String genero, Integer anio, Integer duracion, Integer tiempoVisto,
             Integer calificacion, Boolean visto, Integer temporadas) {
-        super(titulo, genero, anio, duracion, tiempoVisto, 0, false, temporadas);
+        super(titulo, genero, anio, duracion, tiempoVisto);
     }
 
     public Capitulo[] getCapitulos() {

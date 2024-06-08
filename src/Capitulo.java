@@ -1,9 +1,18 @@
 public class Capitulo extends Video implements Visualizable{
+    String tituloCapitulo;
 
-    public Capitulo(String titulo, String genero, Integer anio, Integer duracion, Integer tiempoVisto,
-            Integer calificacion, Boolean visto, Integer temporadas, Object object) {
-        super(titulo, genero, anio, duracion, tiempoVisto, 0, false, temporadas);
+
+    public Capitulo(String titulo, String genero, Integer anio, Integer duracion, Integer calificacion) {
+        super(titulo, genero, anio, duracion, null);
+        //TODO Auto-generated constructor stub
+    }
     
+    public String getTituloCapitulo() {
+        return tituloCapitulo;
+    }
+
+    public void setTituloCapitulo(String tituloCapitulo) {
+        this.tituloCapitulo = tituloCapitulo;
     }
 
     @Override

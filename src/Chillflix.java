@@ -6,11 +6,12 @@ public class Chillflix {
         int opcion = 0;
         int inicioPelicula = 0; 
         int inicioSerie = 0;
+        Boolean menu = true;
 
-        Pelicula pelicula[] = new Pelicula[100]; //maximo de 100 peliculas
-        Serie serie[] = new Serie[100];//maximo de 100 series
+        Pelicula pelicula[] = new Pelicula[100]; //se iniacializa el arreglo con un maximo de 100 peliculas
+        Serie series[] = new Serie[100];//se inicializa el arreglo con un maximo de 100 series
         
-        while (true) {
+        while (menu) {
         System.out.println("      CHILLFLIX      ");
         System.out.println("=====================");
         System.out.println("1.-Registrar Pelicula");
@@ -34,11 +35,11 @@ public class Chillflix {
                 inicioPelicula++;
                 break;
                 case 2:
-                serie[inicioSerie] = registrarSerie(input);
+                series[inicioSerie] = registrarSerie(input);
                 inicioSerie++;
                 break;
                 case 3:
-                registrarCapitulo(input, inicioSerie, serie);
+                registrarCapitulo(input, inicioSerie, series);
                 break;
                 case 4:
                 System.out.println("");
@@ -47,6 +48,7 @@ public class Chillflix {
                 case 7:
                 case 9:
                 System.out.println("Hasta luego!");
+                menu = false;
                 break;
             }
         }
@@ -87,13 +89,43 @@ public class Chillflix {
     }
 
     public static Capitulo registrarCapitulo(Scanner input, Integer inicioSerie, Serie[] series){
-        if (inicioSerie !=0) {
-            System.out.println("A que Serie le quieres agregar capitulos ?");
-            for(int i=0 ; i<inicioSerie ; i++){
+        if (inicioSerie == 0) {
+            System.out.println("No tiene series registradas.");
+            return null;
+        }else{
+            System.out.println("En que serie desea registrar capitulos ? ");
+            for(int i = 0; i < inicioSerie ; i++ ){
                 System.out.println(i+1 + ". " + series[i].toString());
             }
+            System.out.println("Seleccione el numero de serie: ");
+            Integer seleccionSerie = input.nextInt() - 1 ;
+
+            if (seleccionSerie >= 0 && seleccionSerie <= inicioSerie) {
+                Serie serieSeleccionada = series[seleccionSerie];
+                Integer indice = -1;
+                for(int i = 0 ; i < serieSeleccionada.capitulos.length ; i ++){
+                    if (serieSeleccionada.getCapitulos()[i]== null) {
+                        indice = i ;
+                        break;
+                    }
+                }
+                System.out.println("Ingresa el titulo del capitulo");
+                input.nextLine();
+                String tituloCapitulo = input.nextLine();
+                String genero =  series[seleccionSerie].getGenero();
+                Integer anio = series[seleccionSerie].getAnio();
+                Integer duracion = series[seleccionSerie].getDuracion();
+                // los parametros se pasan de la serie seleccionada exceptuando el titulo del capitulo
+                Capitulo capitulo = new Capitulo(tituloCapitulo, genero, anio, duracion, duracion);
+                serieSeleccionada.getCapitulos()[indice] = capitulo;
+                System.out.println("Capitulo agregado en la serie: " + serieSeleccionada.getTitulo());
+                return capitulo;
+            }else{
+                return null;
+            }
+
         }
-        return;
+
     }
 
 

@@ -4,14 +4,13 @@ public abstract class Video {
     Boolean visto;
 
     
-    public Video(String titulo, String genero, Integer anio, Integer duracion, Integer tiempoVisto,
-            Integer calificacion, Boolean visto, Integer temporadas) {
+    public Video(String titulo, String genero, Integer anio, Integer duracion, Integer calificacion){
         this.titulo = titulo;
         this.genero = genero;
         this.anio = anio;
         this.duracion = duracion;
         this.tiempoVisto = 0;
-        this.calificacion = calificacion;
+        this.calificacion = null;
         this.visto = false;
     }
 
