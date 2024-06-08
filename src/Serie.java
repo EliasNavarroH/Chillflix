@@ -49,5 +49,16 @@ public class Serie extends Video{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'ponerCalificacion'");
     }
+
+    public void agregarCapitulo(){
+        capitulos = new Capitulo[temporadas][];
+        for(int i = 0; i < temporadas ; i++){
+            System.out.println("Ingrese el numero de capitulos para la temporada: " + i +1);
+            Integer cantCapitulos = input.nextInt();
+            capitulos [i] = new Capitulo[cantCapitulos];
+            for
+            return null
+        }
+    }
     
 }
