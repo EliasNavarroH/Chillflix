@@ -26,7 +26,7 @@ public class Serie extends Video implements Visualizable{
 
     @Override
     public String toString(){
-       return "Nombre de la serie : " + this.titulo + " ";
+       return " " + this.titulo + " | " + this.genero + " | " + this.anio + " | " ;
     }
 
     @Override

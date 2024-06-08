@@ -16,5 +16,8 @@ public class Pelicula extends Video implements Visualizable {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'ponerCalificacion'");
     }
-    
+    @Override
+    public String toString(){
+       return " " + this.titulo + " | " + this.genero + " | " + this.anio + " | " + this.tiempoVisto +" | " + this.calificacion ;
+    }
 }

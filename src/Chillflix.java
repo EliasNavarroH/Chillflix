@@ -42,7 +42,7 @@ public class Chillflix {
                 registrarCapitulo(input, inicioSerie, series);
                 break;
                 case 4:
-                System.out.println("");
+                actualizarPelicula(input, inicioPelicula, pelicula);
                 case 5:
                 case 6:
                 case 7:
@@ -126,6 +126,28 @@ public class Chillflix {
 
         }
 
+    }
+
+    public static Pelicula actualizarPelicula(Scanner input, Integer inicioPelicula, Pelicula[] peliculas){
+        if (inicioPelicula == 0) {
+            System.out.println("No hay peliculas registradas. ");
+            return null;
+        }else {
+            System.out.println("En que serie desea registrar capitulos ? ");
+            for(int i = 0; i < inicioPelicula ; i++ ){
+                System.out.println(i+1 + ". " + peliculas[i].toString());
+            }
+            System.out.println("Seleccione el nro de Pelicula de la lista: ");
+            Integer seleccionPelicula = input.nextInt() - 1;
+            Pelicula peliculaSeleccionada = peliculas[seleccionPelicula];
+            System.out.println("La pelicula seleccionada es: " + peliculaSeleccionada.getTitulo());
+            if (peliculaSeleccionada.getVisto() == false) {
+                System.out.println("Que calificacion quieres poner ?");
+                peliculaSeleccionada.setCalificacion(input.nextInt());
+            }
+            
+            return null;
+        }
     }
 
 
