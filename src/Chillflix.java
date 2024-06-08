@@ -54,32 +54,34 @@ public class Chillflix {
     }
 
     public static Pelicula registrarPelicula(Scanner input){
-        Pelicula pelicula = new Pelicula(null, null, null, null, null, null, null);
+        // Se crea el metodo para registrar las peliculas
         System.out.println("Ingresa el titulo de la pelicula:");
         input.nextLine();
-        pelicula.setTitulo(input.nextLine());
+        String titulo = input.nextLine();
         System.out.println("Ingrese el genero de la pelicula");
-        pelicula.setGenero(input.nextLine());
+        String genero = input.nextLine();
         System.out.println("El año de la misma: ");
-        pelicula.setAnio(input.nextInt());
+        Integer anio = input.nextInt();
         System.out.println("La duracion en minutos: ");
-        pelicula.setDuracion(input.nextInt());
+        Integer duracion = input.nextInt();
+        Pelicula pelicula = new Pelicula(titulo, genero, anio, duracion, 0); 
         return pelicula;
     }
 
     public static Serie registrarSerie(Scanner input){
-        Serie serie = new Serie(null, null, null, null, null, null, null, null);
+        // Se crea el metodo para registrar una serie.
         System.out.println("Ingresa el titulo de la serie: ");
         input.nextLine();
-        serie.setTitulo(input.nextLine());
+        String titulo = input.nextLine();
         System.out.println("Ingresa el genero: ");
-        serie.setGenero(input.nextLine());
+        String genero = input.nextLine();
         System.out.println("El año de la serie: ");
-        serie.setAnio(input.nextInt());
+        Integer anio = input.nextInt();
         System.out.println("La duracion de la mimsa: ");
-        serie.setDuracion(input.nextInt());
+        Integer duracion = input.nextInt();
         System.out.println("Ingrese la cantidad de temporadas: ");
-        serie.setTemporadas(input.nextInt());
+        Integer temporadas = input.nextInt();
+        Serie serie = new Serie(titulo, genero, anio, duracion, anio, duracion, null, temporadas);
         serie.capitulos = new Capitulo[50];
         return serie;
     }
@@ -91,7 +93,7 @@ public class Chillflix {
                 System.out.println(i+1 + ". " + series[i].toString());
             }
         }
-        return capitulo;
+        return;
     }
 
 

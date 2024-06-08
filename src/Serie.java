@@ -1,11 +1,11 @@
-public class Serie extends Video{
+public class Serie extends Video implements Visualizable{
     Integer temporadas;
     Capitulo[] capitulos = new Capitulo[100];
 
     
     public Serie(String titulo, String genero, Integer anio, Integer duracion, Integer tiempoVisto,
             Integer calificacion, Boolean visto, Integer temporadas) {
-        super(titulo, genero, anio, duracion, tiempoVisto, calificacion, visto, temporadas);
+        super(titulo, genero, anio, duracion, tiempoVisto, 0, false, temporadas);
     }
 
     public Capitulo[] getCapitulos() {
@@ -27,6 +27,18 @@ public class Serie extends Video{
     @Override
     public String toString(){
        return "Nombre de la serie : " + this.titulo + " ";
+    }
+
+    @Override
+    public int tiempoVisto() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'tiempoVisto'");
+    }
+
+    @Override
+    public int ponerCalificacion() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'ponerCalificacion'");
     }
     
 }
