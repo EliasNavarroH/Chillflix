@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public abstract class Video implements Visualizable{
     String titulo, genero;
     Integer anio, duracion, tiempoVisto, calificacion;

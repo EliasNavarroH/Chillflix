@@ -45,6 +45,8 @@ public class Chillflix {
                 actualizarPelicula(input, inicioPelicula, pelicula);
                 break;
                 case 5:
+                actualizarSerie(input, inicioSerie, series);
+                break;
                 case 6:
                 case 7:
                 case 9:
@@ -133,6 +135,15 @@ public class Chillflix {
         System.out.println("Ingrese la cantidad de temporadas: ");
         serie.setTemporadas(input.nextInt());
         return serie;
+    }
+
+    public static Serie actualizarSerie(Scanner input, Integer inicioSerie, Serie[] series){
+        if (inicioSerie == 0) {
+            System.out.println("No hay series cargadas para actualizar.");
+        }else{
+
+        }
+        return null;
     }
 
     public static Capitulo registrarCapitulo(Scanner input, Integer inicioSerie, Serie[] series){
