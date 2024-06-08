@@ -141,7 +141,31 @@ public class Chillflix {
         if (inicioSerie == 0) {
             System.out.println("No hay series cargadas para actualizar.");
         }else{
+            System.out.println("Que serie desea actualizar ? ");
+            for(int i = 0 ;i<inicioSerie; i++ ){
+                System.out.println(i + 1 + ". " + series[i]);
+            }
+            Integer serieElegida = input.nextInt()-1;
 
+            if (serieElegida >= 0 && serieElegida < inicioSerie) {
+                System.out.println("La serie elegida es: " + series[serieElegida].getTitulo());
+                System.out.println("Que deseas actualizar ?");
+                System.out.println("1) Actualizar tiempo visto");
+                System.out.println("2) Calificar serie");
+                Integer opcion = input.nextInt();
+                if (opcion > 2) {
+                    System.out.println("Ingrese una opcion valida");
+                }else{
+                    switch (opcion) {
+                        case 1:
+                            series[serieElegida].tiempoVisto();
+                            break;
+                        case 2:
+                            series[serieElegida].ponerCalificacion();
+                            break;
+                    }
+                }
+            }
         }
         return null;
     }

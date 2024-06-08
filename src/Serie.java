@@ -32,13 +32,16 @@ public class Serie extends Video{
 
     @Override
     public String toString(){
-       return " " + this.titulo + " | " + this.genero + " | " + this.anio + " | " ;
+       return " " + this.titulo + " | " + this.genero + " | " + this.anio + " | " + " Duracion (minutos) + " + this.duracion + " | " + " Calificacion: " + this.calificacion ;
     }
 
     @Override
     public int tiempoVisto() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'tiempoVisto'");
+        System.out.println("El tiempo visto actual de: " + this.titulo + " es de " + this.tiempoVisto + " minutos");
+        System.out.println("Ingresa en minutos el tiempo visto:  ");
+        this.setTiempoVisto(input.nextInt());
+        return this.tiempoVisto;
+
     }
 
     @Override
