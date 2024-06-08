@@ -1,18 +1,24 @@
-public class Serie extends Video implements Visualizable{
-    Integer temporadas;
-    Capitulo[] capitulos = new Capitulo[100];
+import java.util.Scanner;
+
+public class Serie extends Video{
+
+    Scanner input = new Scanner(System.in);
+    private Integer temporadas;
+    private Capitulo[][] capitulos;
 
     
     public Serie(String titulo, String genero, Integer anio, Integer duracion, Integer tiempoVisto,
             Integer calificacion, Boolean visto, Integer temporadas) {
         super(titulo, genero, anio, duracion, tiempoVisto);
+        this.temporadas = temporadas;
+        this.capitulos = new Capitulo[temporadas][];
     }
 
-    public Capitulo[] getCapitulos() {
+    public Capitulo[][] getCapitulos() {
         return capitulos;
     }
 
-    public void setCapitulos(Capitulo[] capitulos) {
+    public void setCapitulos(Capitulo[][] capitulos) {
         this.capitulos = capitulos;
     }
 

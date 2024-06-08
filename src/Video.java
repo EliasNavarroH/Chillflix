@@ -1,10 +1,11 @@
-public abstract class Video {
+import java.util.Scanner;
+public abstract class Video implements Visualizable{
     String titulo, genero;
     Integer anio, duracion, tiempoVisto, calificacion;
     Boolean visto;
 
     
-    public Video(String titulo, String genero, Integer anio, Integer duracion, Integer calificacion){
+    public Video(String titulo, String genero, Integer anio, Integer duracion,Integer tiempoVisto){
         this.titulo = titulo;
         this.genero = genero;
         this.anio = anio;

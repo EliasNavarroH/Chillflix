@@ -8,8 +8,8 @@ public class Chillflix {
         int inicioSerie = 0;
         Boolean menu = true;
 
-        Pelicula pelicula[] = new Pelicula[100]; //se iniacializa el arreglo con un maximo de 100 peliculas
-        Serie series[] = new Serie[100];//se inicializa el arreglo con un maximo de 100 series
+        final Pelicula pelicula[] = new Pelicula[100]; //se iniacializa el arreglo con un maximo de 100 peliculas
+        final Serie series[] = new Serie[100];//se inicializa el arreglo con un maximo de 100 series
         
         while (menu) {
         System.out.println("      CHILLFLIX      ");
@@ -43,6 +43,7 @@ public class Chillflix {
                 break;
                 case 4:
                 actualizarPelicula(input, inicioPelicula, pelicula);
+                break;
                 case 5:
                 case 6:
                 case 7:
@@ -68,23 +69,69 @@ public class Chillflix {
         Integer duracion = input.nextInt();
         Pelicula pelicula = new Pelicula(titulo, genero, anio, duracion, 0); 
         return pelicula;
+        }
+        
+    public static Pelicula actualizarPelicula(Scanner input, Integer inicioPelicula, Pelicula[] peliculas) {
+            if (inicioPelicula == 0) {
+                System.out.println("No hay películas registradas.");
+                return null;
+            }
+        
+            System.out.println("¿Qué película desea actualizar?");
+            for (int i = 0; i < inicioPelicula; i++) {
+                if (peliculas[i] != null) {
+                    System.out.println((i + 1) + ". " + peliculas[i].toString());
+                } else {
+                    System.out.println((i + 1) + ". Película no inicializada");
+                }
+            }
+        
+            System.out.println("Seleccione el número de la película: ");
+            Integer peliculaElegida = input.nextInt() - 1;  // Ajustar para índice base 0
+        
+            if (peliculaElegida >= 0 && peliculaElegida < inicioPelicula && peliculas[peliculaElegida] != null) {
+                System.out.println("Elegiste: " + peliculas[peliculaElegida].getTitulo());
+                System.out.println("¿Qué deseas hacer?");
+                System.out.println("1) Actualizar tiempo visto");
+                System.out.println("2) Calificar película");
+        
+                Integer opcion = input.nextInt();
+        
+                if (opcion < 1 || opcion > 2) {
+                    System.out.println("Ingrese una opción válida.");
+                } else {
+                    switch (opcion) {
+                        case 1:
+                            peliculas[peliculaElegida].tiempoVisto();
+                            break;
+                        case 2:
+                            peliculas[peliculaElegida].ponerCalificacion();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            } else {
+                System.out.println("Número de película seleccionado inválido.");
+            }
+        
+            return null;
     }
-
+        
     public static Serie registrarSerie(Scanner input){
         // Se crea el metodo para registrar una serie.
+        Serie serie = new Serie("null", "null", 0, 0, 0, 0, null, 0);
         System.out.println("Ingresa el titulo de la serie: ");
         input.nextLine();
-        String titulo = input.nextLine();
+        serie.setTitulo(input.nextLine());
         System.out.println("Ingresa el genero: ");
-        String genero = input.nextLine();
+        serie.setGenero(input.nextLine());
         System.out.println("El año de la serie: ");
-        Integer anio = input.nextInt();
-        System.out.println("La duracion de la mimsa: ");
-        Integer duracion = input.nextInt();
+        serie.setAnio(input.nextInt());
+        System.out.println("La duracion de la misma en minutos: ");
+        serie.setDuracion(input.nextInt());
         System.out.println("Ingrese la cantidad de temporadas: ");
-        Integer temporadas = input.nextInt();
-        Serie serie = new Serie(titulo, genero, anio, duracion, anio, duracion, null, temporadas);
-        serie.capitulos = new Capitulo[50];
+        serie.setTemporadas(input.nextInt());
         return serie;
     }
 
@@ -126,29 +173,6 @@ public class Chillflix {
 
         }
 
-    }
-
-    public static Pelicula actualizarPelicula(Scanner input, Integer inicioPelicula, Pelicula[] peliculas){
-        if (inicioPelicula == 0) {
-            System.out.println("No hay peliculas registradas. ");
-            return null;
-        }else {
-            System.out.println("En que serie desea registrar capitulos ? ");
-            for(int i = 0; i < inicioPelicula ; i++ ){
-                System.out.println(i+1 + ". " + peliculas[i].toString());
-            }
-            System.out.println("Seleccione el nro de Pelicula de la lista: ");
-            Integer seleccionPelicula = input.nextInt() - 1;
-            Pelicula peliculaSeleccionada = peliculas[seleccionPelicula];
-            System.out.println("La pelicula seleccionada es: " + peliculaSeleccionada.getTitulo());
-            if (peliculaSeleccionada.getVisto() == false) {
-                System.out.println("Que calificacion quieres poner ?");
-                peliculaSeleccionada.setCalificacion(input.nextInt());
-            }
-            
-            return null;
-        }
-    }
-
+    }     
 
 }

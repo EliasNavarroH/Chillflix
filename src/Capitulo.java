@@ -1,7 +1,9 @@
-public class Capitulo extends Video implements Visualizable{
+import java.util.Scanner;
+
+public class Capitulo extends Video{
     String tituloCapitulo;
-
-
+    Scanner input = new Scanner(System.in);
+    
     public Capitulo(String titulo, String genero, Integer anio, Integer duracion, Integer calificacion) {
         super(titulo, genero, anio, duracion, null);
         //TODO Auto-generated constructor stub
@@ -26,5 +28,6 @@ public class Capitulo extends Video implements Visualizable{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'ponerCalificacion'");
     }
+
     
 }
