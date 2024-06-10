@@ -5,8 +5,8 @@ public class Serie extends Video{
     Scanner input = new Scanner(System.in);
     private Integer temporadas;
     private Capitulo[][] capitulos;
-
     
+
     public Serie(String titulo, String genero, Integer anio, Integer duracion, Integer tiempoVisto,
             Integer calificacion, Boolean visto, Integer temporadas) {
         super(titulo, genero, anio, duracion, tiempoVisto);
@@ -68,6 +68,7 @@ public class Serie extends Video{
                 capitulo.setDuracion(input.nextInt());
                 input.nextLine();
                 capitulos[i][j] = capitulo;
+                cantCapitulos ++;
             }
         }
     }

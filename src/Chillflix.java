@@ -181,7 +181,7 @@ public class Chillflix {
         return serie;
     }
 
-    public static Serie actualizarSerie(Scanner input, Integer inicioSerie, Serie[] series) {
+    public static Serie actualizarSerie() {
         if (inicioSerie == 0) {
             System.out.println("No hay series cargadas para actualizar.");
         } else {
@@ -214,7 +214,7 @@ public class Chillflix {
         return null;
     }
 
-    public static void registrarCapitulo(Scanner input, Integer inicioSerie, Serie[] series) {
+    public static void registrarCapitulo() {
         System.out.println("A que series deseas cargar capitulos ?");
         for (int i = 0; i < inicioSerie; i++) {
             System.out.println(i + 1 + ". " + series[i].getTitulo());
@@ -227,7 +227,7 @@ public class Chillflix {
         }
     }
 
-    public static void actualizarCapitulo(Scanner input, Integer inicioSere, Serie[] series) {
+    public static void actualizarCapitulo() {
         System.out.println("Sobre cual serie deseas actualizar los capitulos: ");
         for (int i = 0; i < inicioSere; i++) {
             System.out.println((i + 1) + series[i].getTitulo());
@@ -260,4 +260,47 @@ public class Chillflix {
         }
 
     }
+
+    public static void pendientes(){
+
+    }
+
+    public static void favoritos(){
+
+    }
+
+    public static void serieMasCapitulos(){
+        Serie serieConMasCaps = null;
+        Integer capitulosMaximos = 0;
+        for(int i = 0; i< inicioSerie; i++){
+            if (series[i].getCapitulos().length > capitulosMaximos ) {
+                capitulosMaximos = series[i].getCantCapitulos();
+                serieConMasCaps = 
+            }
+        }
+        return 
+    }
+
+    public static void peliculaMasCorta(){
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

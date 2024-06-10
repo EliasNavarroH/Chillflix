@@ -36,7 +36,7 @@ public class Pelicula extends Video {
 
     @Override
     public int ponerCalificacion() {
-        System.out.println("Ingresa la calificación (1-5) para " + this.titulo + ": ");
+        System.out.println("Ingresa la calificación (1-10) para " + this.titulo + ": ");
         int calificacion = input.nextInt();
         this.setCalificacion(calificacion);
         return this.calificacion;
