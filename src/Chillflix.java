@@ -48,6 +48,8 @@ public class Chillflix {
                 actualizarSerie(input, inicioSerie, series);
                 break;
                 case 6:
+                actualizarCapitulo(input, inicioSerie, series);
+                break;
                 case 7:
                 case 9:
                 System.out.println("Hasta luego!");
@@ -182,5 +184,21 @@ public class Chillflix {
             series[seleccionSerie].agregarCapitulo();
         }
     }     
+
+    public static void actualizarCapitulo(Scanner input, Integer inicioSere, Serie[] series){
+        System.out.println("Sobre cual serie deseas actualizar los capitulos: ");
+        for(int i = 0 ;i < inicioSere; i++){
+            System.out.println((i+1) + series[i].getTitulo());
+        }
+        System.out.println("Elija la serie: ");
+        Integer seleccionSerie = input.nextInt() - 1;
+        input.nextLine();
+        if (seleccionSerie >= 0 && seleccionSerie < inicioSere) {
+            System.out.println("La serie tiene " + series[seleccionSerie].getTemporadas() + " temporadas");
+            System.out.println("Busca el capitulo que deseas actualizar: ");
+            String capituloBuscado = input.nextLine();
+            
+        }
+    }
 
 }
