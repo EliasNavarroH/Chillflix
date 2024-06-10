@@ -170,16 +170,17 @@ public class Chillflix {
         return null;
     }
 
-    public static Capitulo registrarCapitulo(Scanner input, Integer inicioSerie, Serie[] series){
+    public static void registrarCapitulo(Scanner input, Integer inicioSerie, Serie[] series){
         System.out.println("A que series deseas cargar capitulos ?");
         for (int i = 0; i < inicioSerie; i++) {
-            System.out.println(i+1 + ". " + series[i].titulo);
+            System.out.println(i+1 + ". " + series[i].getTitulo());
         }
+        input.nextLine();
         Integer seleccionSerie = input.nextInt()-1;
-        if (seleccionSerie > 0 && seleccionSerie < inicioSerie) {
-            seleccionSerie.agregarCapitulo();
+        input.nextLine();
+        if (seleccionSerie >= 0 && seleccionSerie < inicioSerie) {
+            series[seleccionSerie].agregarCapitulo();
         }
-        return null;
     }     
 
 }

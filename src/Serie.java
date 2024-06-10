@@ -53,11 +53,22 @@ public class Serie extends Video{
     public void agregarCapitulo(){
         capitulos = new Capitulo[temporadas][];
         for(int i = 0; i < temporadas ; i++){
-            System.out.println("Ingrese el numero de capitulos para la temporada: " + i +1);
+            System.out.println("Ingrese el numero de capitulos para la temporada: " + (i +1));
             Integer cantCapitulos = input.nextInt();
+            input.nextLine();
             capitulos [i] = new Capitulo[cantCapitulos];
-            for
-            return null
+            for(int j=0; j < cantCapitulos ; j++){
+                Capitulo capitulo = new Capitulo(" ", "genero", 0, 0, 0);
+                System.out.println("Ingresa el titulo del capitulo " + (j + 1));
+                capitulo.setTitulo(input.nextLine());
+                capitulo.setGenero(this.getGenero());
+                System.out.println("Ingrese el año del capitulo: ");
+                capitulo.setAnio(input.nextInt());
+                System.out.println("Ingrese la duracion del capitulo(minutos):");
+                capitulo.setDuracion(input.nextInt());
+                input.nextLine();
+                capitulos[i][j] = capitulo;
+            }
         }
     }
     
