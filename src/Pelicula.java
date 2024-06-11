@@ -38,8 +38,15 @@ public class Pelicula extends Video {
     public int ponerCalificacion() {
         System.out.println("Ingresa la calificación (1-10) para " + this.titulo + ": ");
         int calificacion = input.nextInt();
-        this.setCalificacion(calificacion);
+        if (calificacion > 0 && calificacion <= 10 || this.calificacion != 0) {
+            this.setCalificacion(calificacion);
+        }else if (this.calificacion != 0) {
+            System.out.println("Ya calificaste esta pelicula");
+        }else{
+            System.out.println("Ingresa una calificacion valida. ");
+        }
         return this.calificacion;
+       
     }
 
 }

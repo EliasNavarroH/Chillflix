@@ -5,7 +5,7 @@ public class Serie extends Video{
     Scanner input = new Scanner(System.in);
     private Integer temporadas;
     private Capitulo[][] capitulos;
-    
+
 
     public Serie(String titulo, String genero, Integer anio, Integer duracion, Integer tiempoVisto,
             Integer calificacion, Boolean visto, Integer temporadas) {
@@ -61,14 +61,13 @@ public class Serie extends Video{
                 Capitulo capitulo = new Capitulo(" ", "genero", 0, 0, 0);
                 System.out.println("Ingresa el titulo del capitulo " + (j + 1));
                 capitulo.setTitulo(input.nextLine());
-                capitulo.setGenero(this.getGenero());
                 System.out.println("Ingrese el año del capitulo: ");
                 capitulo.setAnio(input.nextInt());
                 System.out.println("Ingrese la duracion del capitulo(minutos):");
                 capitulo.setDuracion(input.nextInt());
                 input.nextLine();
+                capitulo.setGenero(this.getGenero());
                 capitulos[i][j] = capitulo;
-                cantCapitulos ++;
             }
         }
     }
