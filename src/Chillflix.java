@@ -90,7 +90,7 @@ public class Chillflix {
                     Chillflix.serieMasCapitulos();
                     break;
                 case 5:
-                    // Chillflix.peliculaMasCorta();
+                    Chillflix.peliculaMasCorta();
                     break;
                 case 9:
                     System.out.println("¡Hasta luego!");
@@ -220,11 +220,14 @@ public class Chillflix {
         for (int i = 0; i < inicioSerie; i++) {
             System.out.println(i + 1 + ". " + series[i].getTitulo());
         }
+        System.out.println("Ingresa el numero de la lista: ");
         input.nextLine();
         Integer seleccionSerie = input.nextInt() - 1;
         input.nextLine();
         if (seleccionSerie >= 0 && seleccionSerie < inicioSerie) {
             series[seleccionSerie].agregarCapitulo();
+        }else{
+            System.out.println("Ingresa un numero valido. ");
         }
     }
 
@@ -234,17 +237,33 @@ public class Chillflix {
         String buscador = input.nextLine();
         for (Serie serie : series) {
             if (serie != null && serie.getTitulo().equalsIgnoreCase(buscador)) {
-                System.out.println( serie.getTitulo() + " | " + serie.getTemporadas() + " Temporadas");
+                System.out.println( serie.getTitulo() + " | " + serie.getTemporadas() + " Temporada/s");
                 System.out.println("En que temporada deseas actualizar capitulo: ");
                 Integer temporadaNumero = input.nextInt() - 1;
                 System.out.println("La temporada elegida tiene " + serie.getCapitulos()[temporadaNumero].length + " Capitulo/s ");
                 for(int i = 0 ; i < serie.getCapitulos()[temporadaNumero].length ; i ++){
-                    System.out.println("1.-" + serie.getCapitulos()[temporadaNumero][i].getTitulo());
+                    System.out.println((i + 1) +".- " + serie.getCapitulos()[temporadaNumero][i].getTitulo());
                 }
                 System.out.println("Que capitulo deseas actualizar ? ");
                 Integer capSeleccionado = input.nextInt() - 1 ;
                 if (serie.getCapitulos()[temporadaNumero][capSeleccionado] != null) {
-                    serie.getCapitulos()[temporadaNumero][capSeleccionado].ponerCalificacion();
+                    System.out.println("Que deseas actualizar ?");
+                    System.out.println("1) Actualizar tiempo visto");
+                    System.out.println("2) Calificar capitulo");
+                    Integer opcion = input.nextInt();
+                    if (opcion > 2) {
+                        System.out.println("Ingrese una opcion valida");
+                    } else {
+                        switch (opcion) {
+                            case 1:
+                                serie.getCapitulos()[temporadaNumero][capSeleccionado].tiempoVisto();
+                                break;
+                            case 2:
+                                serie.getCapitulos()[temporadaNumero][capSeleccionado].ponerCalificacion();
+                                break;
+                        }
+                    }
+                  
                 }else{
                     System.out.println("Ingrese un capitulo valido");
                 }
@@ -281,26 +300,24 @@ public class Chillflix {
     }
 
     public static void serieMasCapitulos() {
-        Serie serieConMasCaps = null;
-        int capitulosMaximos = 0;
-    
-        for (int i = 0; i < inicioSerie; i++) {
-            if (series[i].getCapitulos().length > capitulosMaximos) {
-                capitulosMaximos = series[i].getCapitulos().length; // Obtener la cantidad de capítulos directamente
-                serieConMasCaps = series[i]; // Asignar la serie con más capítulos
+        Serie serieMasLarga = series[0];
+        for(int i = 1 ; i < inicioSerie ; i++){
+            if (series[i].getCapitulosTotales() > serieMasLarga.getCapitulosTotales()) {
+                serieMasLarga = series[i];
             }
         }
-    
-        if (serieConMasCaps != null) {
-            System.out.println("La serie con más capítulos es: " + serieConMasCaps.getTitulo() + 
-                               " con " + capitulosMaximos + " capítulos.");
-        } else {
-            System.out.println("No hay series registradas.");
-        }
+        System.out.println("La serie con mas capitulos es: " + serieMasLarga.toString());
     }
 
     public static void peliculaMasCorta() {
-
+        Pelicula peliculaCorta = pelicula[0];
+        for(int i = 1 ; i > inicioPelicula ; i++){
+            if (pelicula[i].getDuracion() < peliculaCorta.getDuracion()) {
+                peliculaCorta = pelicula[i];
+            }
+        }
+        System.out.println("La pelicula mas corta es: ");
+        System.out.println(peliculaCorta.toString());
     }
 
 }
