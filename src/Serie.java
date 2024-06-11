@@ -72,6 +72,8 @@ public class Serie extends Video{
         }
     }
 
-
+    public void contarCapitulos(){
+        
+    }
     
 }

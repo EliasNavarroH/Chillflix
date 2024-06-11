@@ -236,12 +236,19 @@ public class Chillflix {
             if (serie != null && serie.getTitulo().equalsIgnoreCase(buscador)) {
                 System.out.println( serie.getTitulo() + " | " + serie.getTemporadas() + " Temporadas");
                 System.out.println("En que temporada deseas actualizar capitulo: ");
-                Integer temporadaNumero = input.nextInt();
-                System.out.println("Busca el capitulo a actualizar : ");
-                String capituloBuscado = input.nextLine();
-                if(serie.getCapitulos([temporadaNumero][1]).equalsIgnoreCase(capituloBuscado)){
-
+                Integer temporadaNumero = input.nextInt() - 1;
+                System.out.println("La temporada elegida tiene " + serie.getCapitulos()[temporadaNumero].length + " Capitulo/s ");
+                for(int i = 0 ; i < serie.getCapitulos()[temporadaNumero].length ; i ++){
+                    System.out.println("1.-" + serie.getCapitulos()[temporadaNumero][i].getTitulo());
                 }
+                System.out.println("Que capitulo deseas actualizar ? ");
+                Integer capSeleccionado = input.nextInt() - 1 ;
+                if (serie.getCapitulos()[temporadaNumero][capSeleccionado] != null) {
+                    serie.getCapitulos()[temporadaNumero][capSeleccionado].ponerCalificacion();
+                }else{
+                    System.out.println("Ingrese un capitulo valido");
+                }
+
             }
         }
     }
